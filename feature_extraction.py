@@ -67,10 +67,14 @@ def load_bottleneck_data(training_file, validation_file):
 
 def main(_):
     # load bottleneck data
-    #X_train, y_train, X_val, y_val = load_bottleneck_data(FLAGS.training_file, FLAGS.validation_file)
-    (X_train, y_train), (X_test, y_test) = cifar10.load_data()
+    X_train, y_train, X_val, y_val = load_bottleneck_data(FLAGS.training_file, FLAGS.validation_file)
+
+    # load raw data
+    #(X_train, y_train), (X_test, y_test) = cifar10.load_data()
 
     print(X_train.shape, y_train.shape)
+    print(X_val.shape, y_val.shape)
+    
     # shuffle
     X_train, y_train = shuffle(X_train, y_train)
 
