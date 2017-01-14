@@ -74,6 +74,7 @@ def main(_):
 
     print(X_train.shape, y_train.shape)
     print(X_val.shape, y_val.shape)
+
     
     # shuffle
     X_train, y_train = shuffle(X_train, y_train)
