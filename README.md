@@ -21,6 +21,43 @@ dataset can be on of 'cifar10' or 'traffic'
 
 How will the pretrained model perform on the new datasets?
 
+** CIFAR **
+Netowrk used:
+
+    # 1st Layer - Convolutional with 32 filters, a 3x3 kernel, and valid padding before the flatten layer
+    model.add(Convolution2D(32, 3, 3, border_mode='valid', input_shape=(32,32,3)))
+
+    # 2nd Layer - Pooling
+    model.add(MaxPooling2D(pool_size=(2, 2), strides=None, border_mode='valid', dim_ordering='default'))
+
+    # 3rd Layer - Dropout
+    model.add(Dropout(dropout))
+
+    # 4th layer - ReLU activation layer
+    model.add(Activation('relu'))
+
+    # 5th Layer - Add a flatten layer
+    model.add(Flatten(input_shape=(32, 32, 3)))
+
+    # 6th Layer - Add a fully connected layer
+    model.add(Dense(128))
+
+    # 7th Layer - Add a ReLU activation layer
+    model.add(Activation('relu'))
+
+    # 8th Layer - 43 classes - 43 neurons - Output or 10 for cifar10
+    model.add(Dense(10))
+
+    # 9th layer softmax
+    model.add(Activation('softmax'))
+
+
+Started with it, we got, after 10 epochs:
+Epoch 10/10
+40000/40000 [==============================] - 8s - loss: 0.6755 - acc: 0.7589 - val_loss: 0.9912 - val_acc: 0.6685
+
+
+
 Here are the links for download:
 https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5834b432_vgg-100/vgg-100.zip
 https://d17h27t6h515a5.cloudfront.net/topher/2016/November/5834b634_resnet-100/resnet-100.zip
