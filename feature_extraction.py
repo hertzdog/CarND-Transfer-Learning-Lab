@@ -71,7 +71,6 @@ def main(_):
     (X_train, y_train), (X_test, y_test) = cifar10.load_data()
 
     print(X_train.shape, y_train.shape)
-    print(X_val.shape, y_val.shape)
     # shuffle
     X_train, y_train = shuffle(X_train, y_train)
 
@@ -120,7 +119,7 @@ def main(_):
     # TODO: train your model here
     model.compile(optimizer='adam', loss='categorical_crossentropy', metrics=['accuracy'])
 
-    history=model.fit(X_normalized, y_one_hot, batch_size=32, nb_epoch=10, \
+    phistory=model.fit(X_normalized, y_one_hot, batch_size=32, nb_epoch=10, \
           verbose=1, validation_split=0.2)
 
 
